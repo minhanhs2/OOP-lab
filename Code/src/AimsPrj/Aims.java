@@ -1,4 +1,4 @@
-package aimsproject;
+package AimsPrj;
 
 public class Aims {
     public static void main(String[] args) {

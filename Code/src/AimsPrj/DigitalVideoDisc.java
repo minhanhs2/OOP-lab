@@ -1,4 +1,4 @@
-package aimsproject;
+package AimsPrj;
 
 import java.util.List;
 
