@@ -1,4 +1,4 @@
-package AimsPrj;
+package src.Code;
 
 public class Aims {
     public static void main(String[] args) {
