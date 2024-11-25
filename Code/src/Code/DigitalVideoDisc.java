@@ -3,15 +3,17 @@ package src.Code;
 import java.util.List;
 
 public class DigitalVideoDisc {
-    String name;
-    String description;
-    double price;
-    int inStock;
-    int review;
-    String genre;
-    int releaseDate;
-    String category;
-    String author;
+	private static int nbDigitalVideoDiscs = 0; 
+	private int id;
+	String name;
+	String description;
+	double price;
+	int inStock;
+	int review;
+	String genre;
+	int releaseDate;
+	String author;
+
 
 
     public DigitalVideoDisc(String name, String genre, String author, int releaseDate, double price) {
@@ -20,9 +22,11 @@ public class DigitalVideoDisc {
         this.author = author;
         this.releaseDate = releaseDate;
         this.price = price;
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
-    public DigitalVideoDisc(String name, String description, double price, int inStock, int rating, String genre, int releaseDate, int review) {
+    public DigitalVideoDisc(String name, String description, double price, int inStock, int rating, String genre, int releaseDate, int review, String author) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -30,23 +34,37 @@ public class DigitalVideoDisc {
         this.review = review;
         this.genre = genre;
         this.releaseDate = releaseDate;
+        this.author = author;
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String name, int price) {
         this.name = name;
         this.price = price;
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
+    }
+    public DigitalVideoDisc(String name) {
+        this.name = name;
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String name, String genre, double price) {
         this.name = name;
         this.price = price;
         this.genre = genre;
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public DigitalVideoDisc(String name, String genre, int releaseDate) {
         this.name = name;
         this.genre = genre;
         this.releaseDate = releaseDate;
+        nbDigitalVideoDiscs++;
+        this.id = nbDigitalVideoDiscs;
     }
 
     public String getName() {
@@ -89,5 +107,16 @@ public class DigitalVideoDisc {
         }
     }
 
-
+	public void setName(String name2) {
+		// TODO Auto-generated method stub
+		this.name = name2;
+	}
+	public String toString() {
+        return "DVD - " + name + " - " + author + " - " + releaseDate + ": " + price + " $";
+    }
+	public boolean isMatch(String title) {
+        String lowerCaseTitle = name.toLowerCase();
+        String lowerCaseInput = title.toLowerCase();
+        return lowerCaseTitle.contains(lowerCaseInput);
+    }
 }
